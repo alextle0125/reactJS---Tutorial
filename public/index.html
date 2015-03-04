@@ -5,10 +5,13 @@
     <script src="../build/react.js"></script>
     <script src="../build/JSXTransformer.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
   </head>
   <body>
     <div id="content"></div>
     <script type="text/jsx">
+      // tutorial6.js - Converting the comment to Markdown for stylized output
+      var converter = new Showdown.converter();
       // tutorial5.js - Build individual comment component
       var Comment = React.createClass({
         render: function() {
@@ -17,7 +20,7 @@
             <h2 className="commentAuthor">
               {this.props.author}
             </h2>
-              {this.props.children}
+              {converter.makeHtml(this.props.children.toString())}
             </div>
           );
         }
