@@ -9,6 +9,19 @@
   <body>
     <div id="content"></div>
     <script type="text/jsx">
+      // tutorial5.js - Build individual comment component
+      var Comment = React.createClass({
+        render: function() {
+          return (
+            <div className="comment">
+            <h2 className="commentAuthor">
+              {this.props.author}
+            </h2>
+              {this.props.children}
+            </div>
+          );
+        }
+      });
       // tutorial2.js - Build components to comment box
       var CommentList = React.createClass({
         render: function() {
