@@ -10,6 +10,11 @@
   <body>
     <div id="content"></div>
     <script type="text/jsx">
+      // tutorial8.js - Hooking up a data model
+      var data = [
+        {author: "Pete Hunt", text: "This is one comment"},
+        {author: "Jordan Walke", text: "This is *another* comment"}
+      ];
       // tutorial6.js - Converting the comment to Markdown for stylized output
       var converter = new Showdown.converter();
       // tutorial5.js - Build individual comment component
@@ -31,8 +36,6 @@
         render: function() {
           return (
             <div className="commentList">
-              <Comment author="Pete Hunt">This is one comment</Comment>
-              <Comment author="Jordan Walke">This is *another* comment</Comment>
             </div>
           );
         }
@@ -53,14 +56,14 @@
           return (
             <div className="commentBox">
               <h1>Comments</h1>
-              <CommentList />
+              <CommentList data={this.props.data} />
               <CommentForm />
             </div>
           );
         }
       });
       React.render(
-        <CommentBox />,
+        <CommentBox data={data} />,
         document.getElementById('content')
       );
 
