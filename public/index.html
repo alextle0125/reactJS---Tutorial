@@ -9,21 +9,7 @@
   <body>
     <div id="content"></div>
     <script type="text/jsx">
-      // tutorial1.js
-      var CommentBox = React.createClass({
-        render: function() {
-          return (
-            <div className="commentBox">
-              Hello, world! I am a CommentBox.
-            </div>
-          );
-        }
-      });
-      React.render(
-        <CommentBox />,
-        document.getElementById('content')
-      );
-      // tutorial2.js
+          // tutorial2.js
       var CommentList = React.createClass({
         render: function() {
           return (
@@ -43,6 +29,23 @@
           );
         }
       });
+      // tutorial1.js
+      var CommentBox = React.createClass({
+        render: function() {
+          return (
+            <div className="commentBox">
+              <h1>Comments</h1>
+              <CommentList />
+              <CommentForm />
+            </div>
+          );
+        }
+      });
+      React.render(
+        <CommentBox />,
+        document.getElementById('content')
+      );
+
     </script>
   </body>
 </html>
