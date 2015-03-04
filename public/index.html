@@ -60,6 +60,9 @@
       });
       // tutorial1.js - Build comment box component to contain smaller comment components
       var CommentBox = React.createClass({
+        getInitialState: function() {
+          return {data: []};
+        },
         render: function() {
           return (
             <div className="commentBox">
@@ -71,7 +74,7 @@
         }
       });
       React.render(
-        <CommentBox data={data} />,
+        <CommentBox url="../comments.json" />,
         document.getElementById('content')
       );
 
